@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form </title>
+</head>
+<body>
+    <h1>jquery form</h1>
+    <input type="text" placeholder="Your name" id="inp1">
+<br><br>
+
+<input type="number" placeholder="Your NIC" id="inp2">
+<br><br>
+
+<input type="password" placeholder="Your password" id="inp3">
+<br><br>
+
+<input type="password" placeholder="conform password" id="inp4">
+<br><br>
+
+<input type="radio" placeholder="choose gender" id="inp5">
+<br><br>
+
+<input type="text" placeholder="secttion education" id="inp6">
+<script>
+    $(document).ready(function(){
+        var capital = /^(?=.*[A-Z])/;
+        var small = /^(?=.*[a-z])/;
+        var num = /^(?=.*[0-9])/
+
+
+        $('#inp1').focusout(function(){
+        var user=$('#inp1').val();
+        var user_len=user.length;
+         
+         if(user_len>=3 || user_len<6){
+             alert("username must be in between 4-6");
+         }
+    })
+    $('#inp2').focusout(function(){
+        var nic=$('#inp2').val();
+        var nic_len=nic.length;
+         
+         if(nic_len!=13){
+             alert("nic must be 15 digit");
+         }
+    })
+    $('#inp3').focusout(function(){
+        var pass=$('#inp3').val();
+    if(!pass.match(cap)){
+             alert("password must be contain atleast one capital letter");
+         }
+         else if(!pass.match(small)){
+             alert("password must be contain atleast one small letter");
+         }
+         if(!pass.match(num)){
+             alert("password must be contain atleast one numeric character");
+         }
+    })
+    $('#inp4').focusout(function(){
+        var pass=$('#inp3').val();
+        var Cpass=$('#inp4').val();
+
+         
+         if(Cpass.length!=0 && Cpass!=pass){
+             alert("password is not same");
+         }
+    })
+    })
+
+
+
+</script>
+
+    
+    
+</body>
+
+
+</html>
